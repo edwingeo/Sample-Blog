@@ -1,0 +1,8 @@
+<%= link_to "Home", home_index_path %> | <%= link_to'My Account',blogs_path %>
+<% if logged_in? %>
+  <%= current_user.email %> | <%= link_to "Logout", logout_path %>
+	
+<% else %>
+	<%= link_to "Register", new_user_path %> | <%= link_to "Login", login_path %>
+	
+<% end %>

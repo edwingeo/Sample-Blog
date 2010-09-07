@@ -1,0 +1,26 @@
+
+
+          
+<table border="" cellspacing="1" cellpadding="3">
+  <tr>
+    <td>Blog Name</td>
+    <td>Blog description</td>
+    <td>Blog email</td>
+    <td>Category Name</td>
+    <td>Comment</td>
+    <td>&nbsp;</td>
+  </tr>
+<% @blogs.each do |b| %>
+  <tr>
+    <td><%= b.blog_name %></td>
+    <td><%= b.blog_description %></td>
+    <td><%= b.blog_email %></td>
+    <td><%= b.category.category_name%></td>
+    <td><%= link_to 'Post a Comment',new_comment_path(:id => b)%></td>
+    <td><%= link_to 'view coments',comment_path(:id => b)%>
+    </td>
+
+  </tr>
+<% end %>
+ <%= will_paginate @blogs %>
+</table>

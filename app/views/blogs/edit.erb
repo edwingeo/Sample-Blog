@@ -1,0 +1,20 @@
+<% form_for @blog, blogs_path do |f|%>
+<%= error_messages_for :blog %>
+<table border="" cellpadding="" cellspacing="">
+  <tr>
+    <td><%= f.label :blog_name%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= f.text_field :blog_name%></td>
+  </tr>
+  <tr><td><%= f.label :blog_description%>
+  <%= f.text_area :blog_description%></td></tr>
+  <tr><td><%= f.label :blog_email%>
+  <%= f.text_field :blog_email%></td></tr>
+  <tr><td>
+    <%= f.label :category_name%>
+      <%= select_tag "blog[category_id]", options_for_select(Category.all.map{|c|[c.category_name,c.id]})%>
+    </td></tr>
+
+</table>
+<%= submit_tag 'update'%>
+
+<%end%>

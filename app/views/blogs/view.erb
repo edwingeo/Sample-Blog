@@ -1,0 +1,43 @@
+<h1>Welcome To The World Of Blog</h1>
+<p>
+<table border="" cellspacing="1" cellpadding="3">
+  <tr>
+    <td><%= link_to 'Add Category',new_category_path%></td>
+ </tr>
+  <tr>
+    <td>
+    <%= link_to 'Add Blog',new_blog_path%>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <%= link_to 'View Blog',new_blog_path%>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <%= link_to 'View category',categories_path%>
+    </td>
+  </tr>
+
+           <h1>Category</h1>
+<table border="" cellspacing="1" cellpadding="3">
+  <tr>
+    <td>Blog Name</td>
+    <td>Blog description</td>
+    <td>Blog email</td>
+    <td>Category Name</td>
+    <td>Comment</td>
+    </tr>
+<% @blogs.each do |b| %>
+  <tr>
+    <td><%= b.blog_name %></td>
+    <td><%= b.blog_description %></td>
+    <td><%= b.blog_email %></td>
+    <td><%= b.category.category_name%></td>
+    <td><%= link_to 'Post a Comment',edit_blog_path(b)%></td>
+
+  </tr>
+<% end %>
+</table>
+

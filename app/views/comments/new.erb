@@ -1,0 +1,13 @@
+<h3>Comments</h3>
+
+<% form_for @comment, new_comment_path do |f|%>
+<%= error_messages_for :comment %>
+<%= hidden_field_tag "blog_id", @blog.id %>
+<p><%= f.label :posted_by%>
+<%= f.text_field :posted_by%></p>
+<p><%= f.label :email%>
+<%= f.text_field :email%></p>
+<p><%= f.label :comments_description%>
+<%= f.text_area :comments_description%></p>
+<%= submit_tag 'Save'%>
+<%end%>

@@ -1,0 +1,43 @@
+<table border="" cellspacing="1" cellpadding="3">
+  <tr>
+    <td><h3>Welcome To The World Of Blog</h3></td></tr>
+</table>
+<table border="" cellspacing="1" cellpadding="3">
+  <tr>
+    <td><%= link_to'Add Category',new_category_path%></td>
+ </tr>
+  <tr>
+    <td>
+    <%= link_to'Add Blog',new_blog_path%>
+    </td>
+  </tr>
+   <tr>
+    <td>
+    <%= link_to 'View category',categories_path%>
+    </td>
+  </tr>
+</table>
+           <h4>Category</h4>
+<table border="" cellspacing="1" cellpadding="3">
+  <tr>
+    <td>Blog Name</td>
+    <td>Blog description</td>
+    <td>Blog email</td>
+    <td>Category Name</td>
+    <td>Edit</td>
+    <td>Delete</td>
+    <td>View</td>
+  </tr>
+<% @blogs.each do |b| %>
+  <tr>
+    <td><%= b.blog_name %></td>
+    <td><%= b.blog_description %></td>
+    <td><%= b.blog_email %></td>
+    <td><%= b.category.category_name%></td>
+    <td><%= link_to 'Edit',edit_blog_path(b)%></td>
+    <td><%= link_to 'Delete', blog_path(b), :method => :delete, :confirm => "do u want to delete"%></td>
+    <td><%= link_to 'View',comment_path(:id => b)%></td>
+    </tr>
+<% end %>
+    
+</table>

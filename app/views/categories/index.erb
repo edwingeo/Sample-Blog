@@ -1,0 +1,17 @@
+<h1>Category</h1>
+<p><%= link_to 'Back',blogs_path%> </p>
+<table border="" cellspacing="1" cellpadding="3">
+  <tr>
+    <td>Name</td>
+    <td>Edit</td>
+    <td>Delete</td>
+  </tr>
+<% @categories.each do |b| %>
+  <tr>
+    <td><%= b.category_name %></td>
+    <td><%= link_to 'Edit',edit_category_path(b)%></td>
+    <td><%= link_to 'Delete', category_path(b), :method => :delete, :confirm => "do u want to delete"%></td>
+
+  </tr>
+<% end %>
+</table>

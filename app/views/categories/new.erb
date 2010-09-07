@@ -1,0 +1,10 @@
+<h1>Create categories</h1>
+<%= link_to 'Back',blogs_path%>
+<% form_for @category, categories_path do |f|%>
+<%= error_messages_for :category %>
+<p><%= f.label :category_name%>
+<%= f.text_field :category_name%></p>
+
+<%= submit_tag 'Save'%>
+
+<%end%>

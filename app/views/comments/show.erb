@@ -1,0 +1,27 @@
+<h2>comments</h2>
+<table border="" cellspacing="1" cellpadding="3">
+  <tr>
+    <td>comments description</td>
+<td>Posted By</td>
+<td>Posted date</td>
+<td>Email</td>
+<%if logged_in?%><td>Replay</td> <% end %>
+
+  </tr>
+  <tr>
+<% @blog.comments.each do |c| %>
+
+    <td><%=c.comments_description%></td>
+    <td><%=c.posted_by%></td>
+    <td><%=c.posted_date.strftime("%B, %d, %Y")%></td>
+    <td><%=c.email%></td>
+    <%if logged_in?%>
+
+    <td>hi</td>
+    
+    <%end%>
+  </tr>
+
+<% end %>
+  </table>
+<p><%= link_to 'Back', home_index_path%></p>
